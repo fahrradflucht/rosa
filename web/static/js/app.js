@@ -1,0 +1,1 @@
+import vendorJS from './vendor';

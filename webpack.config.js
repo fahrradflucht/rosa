@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path');
+var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
@@ -11,7 +12,7 @@ function web(dest) { return join('web/static/' + dest); }
 var config = module.exports = {
   entry: {
     application: [
-      web('css/app.sass'),
+      web('css/app.scss'),
       web('js/app.js'),
     ],
   },
@@ -22,7 +23,7 @@ var config = module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.sass'],
+    extensions: ['', '.js', '.scss'],
     modulesDirectories: ['node_modules'],
   },
 
@@ -40,13 +41,16 @@ var config = module.exports = {
         },
       },
       {
-        test: /\.sass$/,
-        loader: ExtractTextPlugin.extract('style', 'css!sass?indentedSyntax&includePaths[]=' + __dirname +  '/node_modules')
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?indentedSyntax&includePaths[]=' + __dirname +  '/node_modules')
       },
     ],
   },
+  postcss: function() {
+    return [autoprefixer]
+  },
   plugins: [
-    new ExtractTextPlugin('css/application.css'),
+    new ExtractTextPlugin('css/application.css')
   ],
 };
 
