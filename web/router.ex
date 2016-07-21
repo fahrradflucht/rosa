@@ -17,6 +17,8 @@ defmodule Rosa.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    get "/admin", PageController, :admin
   end
 
   # Other scopes may use custom stacks.

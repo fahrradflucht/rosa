@@ -4,4 +4,8 @@ defmodule Rosa.PageController do
   def index(conn, _params) do
     render conn, "index.html"
   end
+
+  def admin(conn, _params) do
+    render conn, "admin.html", layout: {Rosa.LayoutView, "admin.html"}
+  end
 end
