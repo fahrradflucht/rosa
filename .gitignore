@@ -14,3 +14,8 @@ erl_crash.dump
 # secrets file as long as you replace its contents by environment
 # variables.
 /config/prod.secret.exs
+
+# Based on how we decide to deploy this will have to be changed but for now it
+# is probably smart to ignore the css/js builds.
+/priv/static/css/application.css
+/priv/static/js/application.js
