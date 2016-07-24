@@ -11,6 +11,8 @@ defmodule Rosa.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug Guardian.Plug.VerifyHeader
+    plug Guardian.Plug.LoadResource
   end
 
   scope "/", Rosa do
@@ -18,11 +20,17 @@ defmodule Rosa.Router do
 
     get "/", PageController, :index
 
-    get "/admin", PageController, :admin
+    get "/admin", PageController, :admin # Serves the admin react app.
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Rosa do
-  #   pipe_through :api
-  # end
+  scope "/api", Rosa do
+    pipe_through :api
+
+    scope "/admin" do
+      scope "/v1" do
+        get "/session", SessionController, :show
+        post "/session", SessionController, :create
+      end
+    end
+  end
 end

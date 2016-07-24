@@ -21,3 +21,7 @@ config :rosa, Rosa.Repo,
   hostname: "localhost",
   port: "32771",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configures Guardian secret
+config :guardian, Guardian,
+  secret_key: "nGPGtmC5jkDFGqZxN9XTJQRS8bKGBpmtNNO13Bb027AP0erSpx8EufFvDdKy"

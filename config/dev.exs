@@ -43,3 +43,7 @@ config :rosa, Rosa.Repo,
   hostname: "localhost",
   port: "32771",
   pool_size: 10
+
+# Configures Guardian secret
+config :guardian, Guardian,
+  secret_key: "fE9fjSVLVKUMybcw9npvXouVU73x1kVVPNanUvz6Ky5vjPiU5cB9HGIUd0ay"
