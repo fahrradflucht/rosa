@@ -9,6 +9,9 @@ config :rosa, Rosa.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+# Reduce the number of bcrypt rounds during tests
+config :comeonin, :bcrypt_log_rounds, 4
+
 # Configure your database
 config :rosa, Rosa.Repo,
   adapter: Ecto.Adapters.Postgres,
