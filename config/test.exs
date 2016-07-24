@@ -19,4 +19,5 @@ config :rosa, Rosa.Repo,
   password: "postgres",
   database: "rosa_test",
   hostname: "localhost",
+  port: "32771",
   pool: Ecto.Adapters.SQL.Sandbox
