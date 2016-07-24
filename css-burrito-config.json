@@ -8,7 +8,10 @@
     "modules": {
       "modulesDirectory": "modules",
       "modulesImportFile": "_modules.scss",
-      "moduleFiles": []
+      "moduleFiles": [
+        "_shell.scss",
+        "_sidenav.scss"
+      ]
     }
   },
   "template": {
@@ -17,7 +20,7 @@
       "libs"
     ],
     "files": [
-      "application.scss",
+      "app.scss",
       "global/_base.scss",
       "global/_layout.scss",
       "global/_settings.scss",
