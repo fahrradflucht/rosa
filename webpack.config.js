@@ -13,7 +13,6 @@ var config = module.exports = {
   entry: {
     application: [
       web('css/app.scss'),
-      'whatwg-fetch',
       web('js/app.js'),
     ],
   },
@@ -51,10 +50,7 @@ var config = module.exports = {
     return [autoprefixer]
   },
   plugins: [
-    new ExtractTextPlugin('css/application.css'),
-    new webpack.ProvidePlugin({
-      'Promise': 'es6-promise'
-    })
+    new ExtractTextPlugin('css/application.css')
   ],
 };
 

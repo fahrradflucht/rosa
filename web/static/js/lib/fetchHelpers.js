@@ -1,3 +1,6 @@
+import 'whatwg-fetch';
+import * as Cookies from 'js-cookie';
+
 export const httpGet = (url) => {
     return fetch(url, {
         headers: createHeaders(),
@@ -20,7 +23,7 @@ const createHeaders = (headers = {}) => {
     return Object.assign({
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('RosaJWT'),
+        'Authorization': Cookies.get('RosaJWT'),
     }, headers);
 }
 

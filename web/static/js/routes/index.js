@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
+import * as Cookies from 'js-cookie';
 import ShellContainer from '../containers/ShellContainer';
 import Dashboard from '../components/Dashboard';
 import LoginContainer from '../containers/LoginContainer';
@@ -11,7 +12,7 @@ export default (store) => {
         const { user } = store.getState().session;
 
         if (!user) {
-            const jwt = localStorage.getItem('RosaJWT');
+            const jwt = Cookies.get('RosaJWT');
             if (jwt) {
                 dispatch(rehydrateSession());
             } else {

@@ -1,4 +1,5 @@
 import { push } from 'react-router-redux';
+import * as Cookies from 'js-cookie';
 import { httpGet, httpPost } from '../lib/fetchHelpers';
 
 const { protocol, host } = window.location;
@@ -15,7 +16,7 @@ export const login = (email, password) => {
             }
         })
         .then(data => {
-            localStorage.setItem('RosaJWT', data.jwt);
+            Cookies.set('RosaJWT', data.jwt);
             dispatch(setUser(data.user));
             dispatch(push('/admin'));
         })
@@ -67,6 +68,7 @@ const setError = (error) => {
 }
 
 export const deleteSession = () => {
+    Cookie.remove('RosaJWT');
     return {
         type: 'DELETE_SESSION'
     }
