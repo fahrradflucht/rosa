@@ -15,14 +15,6 @@ defmodule Rosa.Router do
     plug Guardian.Plug.LoadResource
   end
 
-  scope "/", Rosa do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-
-    get "/admin", PageController, :admin # Serves the admin react app.
-  end
-
   scope "/api", Rosa do
     pipe_through :api
 
@@ -32,5 +24,13 @@ defmodule Rosa.Router do
         post "/session", SessionController, :create
       end
     end
+  end
+
+  scope "/", Rosa do
+    pipe_through :browser # Use the default browser stack
+
+    get "/", PageController, :index
+
+    get "/admin*path", PageController, :admin # Serves the admin react app.
   end
 end

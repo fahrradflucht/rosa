@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { toggleSidenav } from '../actions/shell';
-import Shell from '../components/shell';
+import Shell from '../components/Shell';
 
 const mapStateToProps = (state) => {
     return {

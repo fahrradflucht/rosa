@@ -1,14 +1,32 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import ShellContainer from '../containers/shellContainer';
-import Dashboard from '../components/dashboard';
+import ShellContainer from '../containers/ShellContainer';
+import Dashboard from '../components/Dashboard';
+import LoginContainer from '../containers/LoginContainer';
+import { rehydrateSession } from '../actions/session';
 
 export default (store) => {
-    // onEnter hooks here
+    const authenticate = (next, replace) => {
+        const { dispatch } = store;
+        const { user } = store.getState().session;
+
+        if (!user) {
+            const jwt = localStorage.getItem('RosaJWT');
+            if (jwt) {
+                dispatch(rehydrateSession());
+            } else {
+                replace('/admin/login');
+            }
+        }
+    } 
+    
 
     return (
-        <Route component={ShellContainer} path="/admin">
-            <IndexRoute component={Dashboard}/>
+        <Route path="/admin">
+            <Route component={ShellContainer} onEnter={authenticate}>
+                <IndexRoute component={Dashboard}/>
+            </Route>
+            <Route component={LoginContainer} path="login" />
         </Route>
     )
 }

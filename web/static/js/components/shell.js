@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Sidenav from './sidenav';
+import Sidenav from './Sidenav';
 
 const Shell = ({toggled, children, onNavbarTogglerClick}) => (
     <div id="shell-wrapper" className={ toggled ? 'toggled' : '' }>
