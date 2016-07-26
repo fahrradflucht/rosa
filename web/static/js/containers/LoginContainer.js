@@ -10,6 +10,7 @@ class Login extends React.Component {
     }
 
     render() {
+        const { session } = this.props;
         return (
             <div className="container">
                 <div className="row row-xs-center">
@@ -17,6 +18,11 @@ class Login extends React.Component {
                     <div className="container">
                     <h1 className="text-xs-center display-3">Login to Rosa</h1>
                     <hr/>
+                    { session.error?(
+                        <div className="alert alert-danger" role="alert">
+                            <strong>Oh bummer!</strong> { session.error }
+                        </div>
+                    ):null}
                     <form onSubmit={e => {
                         e.preventDefault();
                         this.handleSubmit();
@@ -39,4 +45,4 @@ class Login extends React.Component {
     }
 };
 
-export default connect()(Login);
+export default connect(state => ({ session: state.session }))(Login);
