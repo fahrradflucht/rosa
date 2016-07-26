@@ -1,0 +1,10 @@
+language: elixir
+elixir:
+    - 1.3.2
+addons:
+    postgresql: '9.4'
+before_script:
+    - psql -c 'create database rosa_test;' -U postgres
+    - cp config/travis.exs config/test.exs
+script:
+    - mix test
