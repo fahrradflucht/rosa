@@ -46,6 +46,14 @@ export const rehydrateSession = () => {
     };
 };
 
+export const logout = () => {
+    return dispatch => {
+        dispatch(deleteSession());
+        Cookies.remove('RosaJWT');
+        dispatch(push('/admin/login'));
+    }
+}
+
 
 const requestSession = () => {
     return {
@@ -67,8 +75,7 @@ const setError = (error) => {
     }
 }
 
-export const deleteSession = () => {
-    Cookie.remove('RosaJWT');
+const deleteSession = () => {
     return {
         type: 'DELETE_SESSION'
     }

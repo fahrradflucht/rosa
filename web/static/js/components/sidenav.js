@@ -1,28 +1,26 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
-const Sidenav = () => (
+const Sidenav = ({ onLogoutButtonClick }) => (
     <div id="sidenav-wrapper">
         <ul className="sidenav-nav">
             <li className="sidenav-brand">
                 <a href="#">Rosa CMS</a>
             </li>
             <li>
-                <a href="#">Item 1</a>
+                <Link to="/admin/users">Users</Link>
             </li>
-            <li>
-                <a href="#">Item 2</a>
-            </li>
-            <li>
-                <a href="#">Item 3</a>
-            </li>
-            <li>
-                <a href="#">Item 4</a>
-            </li>
-            <li>
-                <a href="#">Item 5</a>
+            <li id="logout">
+                <button className="btn btn-danger-outline" onClick={ onLogoutButtonClick }>
+                    Logout
+                </button>
             </li>
         </ul>
     </div>
 );
+
+Sidenav.propTypes = {
+    onLogoutButtonClick: PropTypes.func.isRequired
+}
 
 export default Sidenav;

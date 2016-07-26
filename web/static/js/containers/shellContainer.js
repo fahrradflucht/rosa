@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { toggleSidenav } from '../actions/shell';
+import { logout } from '../actions/session';
 import Shell from '../components/Shell';
 
 const mapStateToProps = (state) => {
@@ -12,6 +13,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onNavbarTogglerClick: () => {
             dispatch(toggleSidenav())
+        },
+        onLogoutButtonClick: () => {
+            dispatch(logout())
         }
     };
 };

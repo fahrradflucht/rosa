@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import Sidenav from './Sidenav';
 
-const Shell = ({toggled, children, onNavbarTogglerClick}) => (
+const Shell = ({toggled, children, onNavbarTogglerClick, onLogoutButtonClick}) => (
     <div id="shell-wrapper" className={ toggled ? 'toggled' : '' }>
-        <Sidenav />
+        <Sidenav  {...{onLogoutButtonClick}} />
         <button className="navbar-toggler" type="button" onClick={onNavbarTogglerClick}>
             &#9776;
         </button>
@@ -21,6 +21,7 @@ const Shell = ({toggled, children, onNavbarTogglerClick}) => (
 
 
 Shell.propTypes = {
+    onLogoutButtonClick: PropTypes.func.isRequired,
     onNavbarTogglerClick: PropTypes.func.isRequired,
     children: PropTypes.node.isRequired,
     toggled: PropTypes.bool.isRequired

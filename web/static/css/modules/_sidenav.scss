@@ -37,6 +37,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    height: 100%;
 
     li {
         text-indent: 20px;
@@ -73,6 +74,11 @@
             background: none;
         }
     }
+}
+
+#logout {
+    position: absolute;
+    bottom: 1em;
 }
 
 @media(min-width:768px) {
