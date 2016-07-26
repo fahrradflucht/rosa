@@ -7,4 +7,4 @@ before_script:
     - psql -c 'create database rosa_test;' -U postgres
     - cp config/travis.exs config/test.exs
 script:
-    -mix test
+    - mix test
