@@ -6,7 +6,7 @@ const { protocol, host } = window.location;
 const baseUrl = `${protocol}//${host}`;
 const sessionUrl = `${baseUrl}/api/admin/v1/session`;
 
-export const login = (email, password) => {
+export const login = (email, password, rememberMe = false) => {
     return dispatch => {
         dispatch(requestSession());
         return httpPost(sessionUrl, {
@@ -16,7 +16,13 @@ export const login = (email, password) => {
             }
         })
         .then(data => {
-            Cookies.set('RosaJWT', data.jwt);
+            if(rememberMe) {
+                // Don't just change this to more then 3 days. This should be
+                // the same time the issued JWT is valid. (See config.exs)
+                Cookies.set('RosaJWT', data.jwt, { expires: 3 });
+            } else {
+                Cookies.set('RosaJWT', data.jwt);
+            }
             dispatch(setUser(data.user));
             dispatch(push('/admin'));
         })
