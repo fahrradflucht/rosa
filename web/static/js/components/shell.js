@@ -1,20 +1,21 @@
 import React, { PropTypes } from 'react';
+import { Button, Col, Glyphicon, Grid, Row } from 'react-bootstrap';
 import Sidenav from './Sidenav';
 
 const Shell = ({toggled, children, onNavbarTogglerClick, onLogoutButtonClick}) => (
     <div id="shell-wrapper" className={ toggled ? 'toggled' : '' }>
         <Sidenav  {...{onLogoutButtonClick}} />
-        <button className="navbar-toggler" type="button" onClick={onNavbarTogglerClick}>
-            &#9776;
-        </button>
+        <Button className="btn-default navbar-toggler" type="button" onClick={onNavbarTogglerClick}>
+            <Glyphicon glyph="menu-hamburger" />
+        </Button>
         <div id="shell-content-wrapper">
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-lg-12">
+            <Grid fluid={true}>
+                <Row>
+                    <Col lg={12}>
                         { children }
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Grid>
         </div>
     </div>
 );

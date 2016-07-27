@@ -14,7 +14,9 @@
 // - - libs
 // add 3rd party libraries here.
 // be sure to load them after the variable overrides file
-@import 'bootstrap/scss/bootstrap';
+
+// We are using bootstrap but we don't build and bundle it at the moment.
+// It just gets pulled from MaxCDN
 
 // - - - - - - - - - - - - - - - - - - -
 // - - global

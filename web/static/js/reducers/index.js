@@ -5,6 +5,6 @@ import shell from './shell';
 
 export default combineReducers({
     routing: routerReducer,
-    session: session,
-    shell: shell
+    session,
+    shell
 });
