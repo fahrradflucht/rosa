@@ -4,7 +4,10 @@ elixir:
 addons:
     postgresql: '9.4'
 before_script:
+    - nvm install $NODE_VERSION
     - psql -c 'create database rosa_test;' -U postgres
     - cp config/travis.exs config/test.exs
+    - npm install
 script:
     - mix test
+    - npm test
