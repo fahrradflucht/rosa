@@ -30,6 +30,7 @@
   "dependencies": {
     "js-cookie": "^2.1.2",
     "react": "^15.2.1",
+    "react-bootstrap": "^0.30.0-rc.2",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.0",
