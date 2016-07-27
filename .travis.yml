@@ -4,7 +4,7 @@ elixir:
 addons:
     postgresql: '9.4'
 before_script:
-    - nvm install $NODE_VERSION
+    - nvm install 6.2.1
     - psql -c 'create database rosa_test;' -U postgres
     - cp config/travis.exs config/test.exs
     - npm install
