@@ -1,4 +1,4 @@
-import 'whatwg-fetch';
+import 'isomorphic-fetch';
 import * as Cookies from 'js-cookie';
 
 export const httpGet = (url) => {
