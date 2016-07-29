@@ -7,7 +7,8 @@
     "test": "/web/static/js/test"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-register web/static/js/test/*/*.spec.js -r web/static/js/test/setup.js"
+    "test": "mocha --compilers js:babel-register web/static/js/test/*/*.spec.js -r web/static/js/test/setup.js",
+    "lint": "eslint web/static/js"
   },
   "author": "fahrradflucht <mail@mathiswiehl.de>",
   "license": "ISC",
@@ -21,6 +22,11 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",
     "css-loader": "^0.23.1",
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^5.2.2",
     "expect": "^1.20.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "faker": "^3.1.0",
