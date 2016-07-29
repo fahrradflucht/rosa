@@ -1,11 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-export default class Dashboard extends React.Component {
-    render() {
-        return (
-            <div>
-                <p>This is the dashboard.</p>
-            </div>
-        );
-    }
-}
+const Dashboard = () => (
+  <div>
+    <p>This is the dashboard.</p>
+  </div>
+);
+
+export default Dashboard;

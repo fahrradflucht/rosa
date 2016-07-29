@@ -4,7 +4,7 @@ import session from './session';
 import shell from './shell';
 
 export default combineReducers({
-    routing: routerReducer,
-    session,
-    shell
+  routing: routerReducer,
+  session,
+  shell,
 });

@@ -11,7 +11,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 const routes = injectStoreAndGetRoutes(store);
 
 render(
-    <Provider store={store}>
-        <Router routes={routes} history={history} />
-    </Provider>, document.getElementById('rosa_dashboard_container')
+  <Provider store={store}>
+    <Router routes={routes} history={history} />
+  </Provider>, document.getElementById('rosa_dashboard_container')
 );
