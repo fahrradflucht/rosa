@@ -19,17 +19,17 @@ describe('session actions', () => {
   describe('login', () => {
     const successNock = () => {
       nock(/example\.com/)
-      .post(sessionPath, {
-        session: {
-          email: fakeUser.email,
-          password: 'ImAnAnimagus',
-        },
-      })
-      .reply(201, {
-        ok: true,
-        user: fakeUser,
-        jwt: 'abcdefghijklmnop',
-      });
+        .post(sessionPath, {
+          session: {
+            email: fakeUser.email,
+            password: 'ImAnAnimagus',
+          },
+        })
+        .reply(201, {
+          ok: true,
+          user: fakeUser,
+          jwt: 'abcdefghijklmnop',
+        });
     };
 
     it('should create a REQUEST_SESSION action', () => {
@@ -83,15 +83,15 @@ describe('session actions', () => {
       // If you find a way to fix this. Patches are welcome.
       it.skip('should create a SET_SESSION_ERROR action', () => {
         nock(/example\.com/)
-        .post(sessionPath, {
-          session: {
-            email: fakeUser.email,
-            password: '',
-          },
-        })
-        .reply(422, {
-          error: 'Invalid email or password',
-        });
+          .post(sessionPath, {
+            session: {
+              email: fakeUser.email,
+              password: '',
+            },
+          })
+          .reply(422, {
+            error: 'Invalid email or password',
+          });
 
         const store = mockStore(initialState);
 
@@ -111,11 +111,11 @@ describe('session actions', () => {
   describe('rehydrateSession', () => {
     const successNock = () => {
       nock(/example\.com/)
-      .get(sessionPath)
-      .reply(200, {
-        ok: true,
-        user: fakeUser,
-      });
+        .get(sessionPath)
+        .reply(200, {
+          ok: true,
+          user: fakeUser,
+        });
     };
 
     it('should create a REQUEST_SESSION action', () => {
@@ -147,10 +147,10 @@ describe('session actions', () => {
     context.skip('on error', () => {
       const errorNock = () => {
         nock(/example\.com/)
-        .get(sessionPath)
-        .reply(403, {
-          error: 'Not Authenticated',
-        });
+          .get(sessionPath)
+          .reply(403, {
+            error: 'Not Authenticated',
+          });
       };
 
       it('should create a SET_SESSION_ERROR action', () => {

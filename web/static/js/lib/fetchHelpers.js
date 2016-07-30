@@ -23,8 +23,8 @@ export const httpGet = (url) => (
   fetch(url, {
     headers: createHeaders(),
   })
-  .then(checkStatus)
-  .then(response => response.json())
+    .then(checkStatus)
+    .then(response => response.json())
 );
 
 export const httpPost = (url, data) => (
@@ -33,6 +33,6 @@ export const httpPost = (url, data) => (
     headers: createHeaders(),
     body: JSON.stringify(data),
   })
-  .then(checkStatus)
-  .then(response => response.json())
+    .then(checkStatus)
+    .then(response => response.json())
 );

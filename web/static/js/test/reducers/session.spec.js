@@ -9,7 +9,7 @@ describe('session reducer', () => {
 
   it('should set isFetching: true on REQUEST_SESSION', () => {
     expect(session(undefined, { type: 'REQUEST_SESSION' }).isFetching)
-    .toEqual(true);
+      .toEqual(true);
   });
 
   it('should set isFetching: false on SET_SESSION_USER', () => {
@@ -17,7 +17,7 @@ describe('session reducer', () => {
       isFetching: true,
     });
     expect(session(initialState, { type: 'SET_SESSION_USER' }).isFetching)
-    .toEqual(false);
+      .toEqual(false);
   });
 
   it('should set the user on SET_SESSION_USER', () => {
@@ -32,7 +32,7 @@ describe('session reducer', () => {
       isFetching: true,
     });
     expect(session(initialState, { type: 'SET_SESSION_ERROR' }).isFetching)
-    .toEqual(false);
+      .toEqual(false);
   });
 
   it('should set the error on SET_SESSION_ERROR', () => {
