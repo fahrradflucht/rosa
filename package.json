@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "mocha --compilers js:babel-register web/static/js/test/*/*.spec.js -r web/static/js/test/setup.js",
-    "lint": "eslint web/static/js"
+    "lint": "eslint web/static/js",
+    "build": "webpack"
   },
   "author": "fahrradflucht <mail@mathiswiehl.de>",
   "license": "ISC",

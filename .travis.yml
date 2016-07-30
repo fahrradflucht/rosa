@@ -9,6 +9,7 @@ before_script:
     - cp config/travis.exs config/test.exs
     - npm install
     - phantomjs -w --webdriver-loglevel=ERROR &
+    - npm run build
 script:
     - mix test
     - npm test
