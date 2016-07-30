@@ -30,6 +30,7 @@ const Login = ({ error, submit }) => (
               const { email, password, rememberMe } = e.target.elements;
               submit(email.value, password.value, rememberMe.checked);
             }}
+            id="login-form"
           >
             <FormGroup controlId="inputEmail">
               <ControlLabel srOnly>Email address</ControlLabel>

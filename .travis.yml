@@ -8,6 +8,7 @@ before_script:
     - psql -c 'create database rosa_test;' -U postgres
     - cp config/travis.exs config/test.exs
     - npm install
+    - phantomjs -w --webdriver-loglevel=ERROR &
 script:
     - mix test
     - npm test
