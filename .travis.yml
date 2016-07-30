@@ -10,9 +10,9 @@ install:
     - nvm install 6.3.1
     - npm install
 before_script:
+    - phantomjs -w --webdriver-loglevel=ERROR &
     - psql -c 'create database rosa_test;' -U postgres
     - cp config/travis.exs config/test.exs
-    - phantomjs -w --webdriver-loglevel=ERROR &
 script:
     - npm run build
     - npm test
