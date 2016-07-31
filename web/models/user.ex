@@ -21,7 +21,6 @@ defmodule Rosa.User do
     |> cast(params, [:first_name, :last_name, :email, :password], [:password_hash])
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 8)
-    |> validate_confirmation(:password, message: "Password does not match")
     |> unique_constraint(:email, message: "Email already taken")
     |> put_pass_hash()
   end
