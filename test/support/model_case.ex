@@ -22,6 +22,8 @@ defmodule Rosa.ModelCase do
       import Ecto.Changeset
       import Ecto.Query
       import Rosa.ModelCase
+      
+      import Rosa.TestHelpers
     end
   end
 
