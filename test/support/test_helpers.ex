@@ -16,11 +16,18 @@ defmodule Rosa.TestHelpers do
     |> Repo.insert!()
   end
 
-  def wait_for(func) do
+  @doc """
+  Retries a given function until it returns true.
+
+  Takes a `:interval` option in which it should retry that defaults to 100ms.
+
+  Caution: All tests that use this function must have a timeout set.
+  """
+  def wait_for(func, options \\ [interval: 100]) do
     case func.() do
       true -> true
       false ->
-        :timer.sleep(100)
+        :timer.sleep(options[:interval])
         wait_for(func)
     end
   end
