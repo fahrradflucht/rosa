@@ -21,3 +21,5 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 ## Doc Dump
 
   * Users need to set guardians `secret_key` in `prod.secret.exs`
+  * Devs should consider running tests with `--exclude integration` 
+  

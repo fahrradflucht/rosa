@@ -14,7 +14,12 @@ defmodule Rosa.IntegrationCase do
     quote do
       use Hound.Helpers
 
-      import Rosa.IntegrationCase
+      alias Rosa.Repo
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
+
+      import Rosa.TestHelpers
     end
   end
 
@@ -31,5 +36,15 @@ defmodule Rosa.IntegrationCase do
       Hound.end_session(parent)
     end
     :ok
+  end
+
+  setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Rosa.Repo)
+
+    unless tags[:async] do
+      Ecto.Adapters.SQL.Sandbox.mode(Rosa.Repo, {:shared, self()})
+    end
+
+    {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end
