@@ -29,6 +29,9 @@ config :guardian, Guardian,
   verify_issuer: true,
   serializer: Rosa.GuardianSerializer
 
+# Configures Hound
+config :hound, driver: "phantomjs"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
