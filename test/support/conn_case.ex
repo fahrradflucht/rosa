@@ -25,6 +25,7 @@ defmodule Rosa.ConnCase do
       import Ecto.Changeset
       import Ecto.Query
 
+      import Rosa.TestHelpers
       import Rosa.Router.Helpers
 
       # The default endpoint for testing
