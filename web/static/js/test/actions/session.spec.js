@@ -77,11 +77,7 @@ describe('session actions', () => {
     });
 
     context('on error', () => {
-      // This test is skipped because it fails, but it should'nt because
-      // the action actually fires. Maybe it's because the error json
-      // parsing is a promise and doesn't get fullfilled fast enough.
-      // If you find a way to fix this. Patches are welcome.
-      it.skip('should create a SET_SESSION_ERROR action', () => {
+      it('should create a SET_SESSION_ERROR action', () => {
         nock(/example\.com/)
           .post(sessionPath, {
             session: {
@@ -143,8 +139,7 @@ describe('session actions', () => {
       });
     });
 
-    // skipped because [see login error tests]
-    context.skip('on error', () => {
+    context('on error', () => {
       const errorNock = () => {
         nock(/example\.com/)
           .get(sessionPath)

@@ -44,12 +44,12 @@ export const login = (email, password, rememberMe = false) => (
         dispatch(setUser(data.user));
         dispatch(push('/admin'));
       })
-      .catch(error => {
-        error.response.json()
-          .then(data => {
-            dispatch(setError(data.error));
-          });
-      });
+      .catch(error => (
+         error.response.json()
+           .then(data => {
+             dispatch(setError(data.error));
+           })
+      ));
   }
 );
 
@@ -60,13 +60,13 @@ export const rehydrateSession = () => (
       .then(data => {
         dispatch(setUser(data.user));
       })
-      .catch(error => {
+      .catch(error => (
         error.response.json()
           .then(data => {
             dispatch(setError(data.error));
             dispatch(push('/admin/login'));
-          });
-      });
+          })
+      ));
   }
 );
 
