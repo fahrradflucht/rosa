@@ -52,7 +52,7 @@ defmodule Rosa.LoginTest do
     assert cookies()
     |> Enum.any?(fn(cookie) ->
       cookie["name"] == "RosaJWT" &&
-      Guardian.decode_and_verify!(cookie["value"]) &&
+      Guardian.decode_and_verify!(cookie["value"])["aud"] == "User:#{user.id}" &&
       !Map.has_key?(cookie, "expires")
     end)
   end
@@ -66,7 +66,7 @@ defmodule Rosa.LoginTest do
     assert cookies()
     |> Enum.any?(fn(cookie) ->
       cookie["name"] == "RosaJWT" &&
-      Guardian.decode_and_verify!(cookie["value"]) &&
+      Guardian.decode_and_verify!(cookie["value"])["aud"] == "User:#{user.id}" &&
       Map.has_key?(cookie, "expires")
     end)
   end
