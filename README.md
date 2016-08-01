@@ -1,4 +1,4 @@
-# Rosa
+# Rosa [![Build Status](https://travis-ci.com/Fahrradflucht/rosa.svg?token=ShCwq7Qu7BM1HfHtG88v&branch=master)](https://travis-ci.com/Fahrradflucht/rosa)
 
 To start your Phoenix app:
 
