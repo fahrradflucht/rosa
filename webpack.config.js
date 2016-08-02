@@ -13,7 +13,7 @@ var config = module.exports = {
   entry: {
     application: [
       web('css/app.scss'),
-      web('js/app.js'),
+      web('js/app.jsx'),
     ],
   },
 
@@ -23,7 +23,7 @@ var config = module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.scss'],
+    extensions: ['', '.js', '.jsx', '.scss'],
     modulesDirectories: ['node_modules'],
   },
 
@@ -31,7 +31,7 @@ var config = module.exports = {
     noParse: /vendor\/phoenix/,
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {

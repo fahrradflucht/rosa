@@ -2,7 +2,7 @@ import { push } from 'react-router-redux';
 import * as Cookies from 'js-cookie';
 import { httpGet, httpPost } from '../lib/fetchHelpers';
 
-const { protocol, host } = window.location;
+const { protocol, host } = global.window.location;
 const baseUrl = `${protocol}//${host}`;
 const sessionUrl = `${baseUrl}/api/admin/v1/session`;
 
