@@ -1,4 +1,4 @@
-import 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
 import * as Cookies from 'js-cookie';
 
 const createHeaders = (headers = {}) => (

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import * as Cookies from 'js-cookie';
-import ShellContainer from '../containers/ShellContainer';
-import Dashboard from '../components/Dashboard';
-import LoginContainer from '../containers/LoginContainer';
-import { rehydrateSession } from '../actions/session';
+import ShellContainer from './containers/ShellContainer';
+import Dashboard from './components/Dashboard';
+import LoginContainer from './containers/LoginContainer';
+import { rehydrateSession } from './actions/session';
 
 export default (store) => {
   const authenticate = (next, replace) => {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleSidenav } from '../actions/shell';
+import toggleSidenav from '../actions/shell';
 import { logout } from '../actions/session';
 import Shell from '../components/Shell';
 

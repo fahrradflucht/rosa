@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "describe": true,
+    "context": true,
+    "it": true,
+    "afterEach": true
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  }
+}
