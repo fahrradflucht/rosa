@@ -41,7 +41,7 @@ config :rosa, Rosa.Repo,
   password: "postgres",
   database: "rosa_dev",
   hostname: "localhost",
-  port: "32771",
+  port: "5432",
   pool_size: 10
 
 # Configures Guardian secret

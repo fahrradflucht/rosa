@@ -19,7 +19,7 @@ config :rosa, Rosa.Repo,
   password: "postgres",
   database: "rosa_test",
   hostname: "localhost",
-  port: "32771",
+  port: "5432",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # Configures Guardian secret
