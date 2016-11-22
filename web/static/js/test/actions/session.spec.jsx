@@ -19,6 +19,7 @@ describe('session actions', () => {
   describe('login', () => {
     const successNock = () => {
       nock(/example\.com/)
+        .log(console.log)
         .post(sessionPath, {
           session: {
             email: fakeUser.email,

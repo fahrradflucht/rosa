@@ -2,8 +2,9 @@ import { push } from 'react-router-redux';
 import * as Cookies from 'js-cookie';
 import { httpGet, httpPost } from '../lib/fetchHelpers';
 
-const { protocol, host } = global.window.location;
-const baseUrl = `${protocol}//${host}`;
+// This can be changed to a configured baseUrl in case we want to support
+// running Rosa on a path instead of a domain.
+const baseUrl = (process.env.NODE_ENV === 'test') ? 'http://example.com': '';
 const sessionUrl = `${baseUrl}/api/admin/v1/session`;
 
 const requestSession = () => ({
