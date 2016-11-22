@@ -7,7 +7,7 @@
     "test": "/web/static/js/test"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-register web/static/js/test/*/*.spec.jsx -r web/static/js/test/setup.jsx",
+    "test": "NODE_ENV=test mocha --compilers js:babel-register web/static/js/test/*/*.spec.jsx -r web/static/js/test/setup.jsx",
     "lint": "eslint web/static/js",
     "build": "webpack"
   },
