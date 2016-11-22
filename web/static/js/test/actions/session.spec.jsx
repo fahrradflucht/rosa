@@ -173,7 +173,7 @@ describe('session actions', () => {
     });
   });
 
-  describe('logut', () => {
+  describe('logout', () => {
     it('should create a DELETE_SESSION action', () => {
       const store = mockStore(initialState);
 
