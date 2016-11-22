@@ -19,3 +19,6 @@ erl_crash.dump
 # is probably smart to ignore the css/js builds.
 /priv/static/css/application.css
 /priv/static/js/application.js
+
+# Editor configs (feel free to PR yours)
+.vscode
