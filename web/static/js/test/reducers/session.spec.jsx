@@ -47,7 +47,7 @@ describe('session reducer', () => {
       user: fakeUser,
     });
     expect(session(initialState, { type: 'DELETE_SESSION' })).toEqual(
-      session(undefined, '')
+      session(undefined, ''),
     );
   });
 });

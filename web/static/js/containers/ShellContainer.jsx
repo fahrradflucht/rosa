@@ -3,11 +3,11 @@ import toggleSidenav from '../actions/shell';
 import { logout } from '../actions/session';
 import Shell from '../components/Shell';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   toggled: state.shell.toggled,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   onNavbarTogglerClick: () => {
     dispatch(toggleSidenav());
   },

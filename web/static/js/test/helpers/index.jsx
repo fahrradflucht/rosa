@@ -1,7 +1,7 @@
 import { internet, name, random } from 'faker';
 
 // Actions
-export const routerPushAction = (to) => (
+export const routerPushAction = to => (
   {
     type: '@@router/CALL_HISTORY_METHOD',
     payload: {

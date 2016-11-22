@@ -39,7 +39,7 @@ describe('<SidenavLink />', () => {
     };
     const wrapper = shallow(<SidenavLink {...props} />);
     expect(
-      wrapper.find('Link').childAt(0).equals(props.children)
+      wrapper.find('Link').childAt(0).equals(props.children),
     ).toBe(true);
   });
 

@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import { login } from '../actions/session';
 import Login from '../components/Login';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   error: state.session.error,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   submit: (email, password, rememberMe) => {
     dispatch(login(email, password, rememberMe));
   },

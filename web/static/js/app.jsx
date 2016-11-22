@@ -13,5 +13,5 @@ const routes = injectStoreAndGetRoutes(store);
 render(
   <Provider store={store}>
     <Router routes={routes} history={history} />
-  </Provider>, global.document.getElementById('rosa_dashboard_container')
+  </Provider>, global.document.getElementById('rosa_dashboard_container'),
 );

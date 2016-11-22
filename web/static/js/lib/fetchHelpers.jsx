@@ -19,7 +19,7 @@ const checkStatus = (response) => {
   throw error;
 };
 
-export const httpGet = (url) => (
+export const httpGet = url => (
   fetch(url, {
     headers: createHeaders(),
   })

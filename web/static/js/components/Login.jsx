@@ -25,7 +25,7 @@ const Login = ({ error, submit }) => (
             </Alert>
           ) : null}
           <form
-            onSubmit={e => {
+            onSubmit={(e) => {
               e.preventDefault();
               const { email, password, rememberMe } = e.target.elements;
               submit(email.value, password.value, rememberMe.checked);

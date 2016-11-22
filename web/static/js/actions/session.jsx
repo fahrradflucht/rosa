@@ -4,19 +4,19 @@ import { httpGet, httpPost } from '../lib/fetchHelpers';
 
 // This can be changed to a configured baseUrl in case we want to support
 // running Rosa on a path instead of a domain.
-const baseUrl = (process.env.NODE_ENV === 'test') ? 'http://example.com': '';
+const baseUrl = (process.env.NODE_ENV === 'test') ? 'http://example.com' : '';
 const sessionUrl = `${baseUrl}/api/admin/v1/session`;
 
 const requestSession = () => ({
   type: 'REQUEST_SESSION',
 });
 
-const setUser = (user) => ({
+const setUser = user => ({
   type: 'SET_SESSION_USER',
   user,
 });
 
-const setError = (error) => ({
+const setError = error => ({
   type: 'SET_SESSION_ERROR',
   error,
 });
@@ -26,7 +26,7 @@ const deleteSession = () => ({
 });
 
 export const login = (email, password, rememberMe = false) => (
-  dispatch => {
+  (dispatch) => {
     dispatch(requestSession());
     return httpPost(sessionUrl, {
       session: {
@@ -34,7 +34,7 @@ export const login = (email, password, rememberMe = false) => (
         password,
       },
     })
-      .then(data => {
+      .then((data) => {
         if (rememberMe) {
           // Don't just change this to more then 3 days. This should be
           // the same time the issued JWT is valid. (See config.exs)
@@ -47,7 +47,7 @@ export const login = (email, password, rememberMe = false) => (
       })
       .catch(error => (
          error.response.json()
-           .then(data => {
+           .then((data) => {
              dispatch(setError(data.error));
            })
       ));
@@ -55,15 +55,15 @@ export const login = (email, password, rememberMe = false) => (
 );
 
 export const rehydrateSession = () => (
-  dispatch => {
+  (dispatch) => {
     dispatch(requestSession());
     return httpGet(sessionUrl)
-      .then(data => {
+      .then((data) => {
         dispatch(setUser(data.user));
       })
       .catch(error => (
         error.response.json()
-          .then(data => {
+          .then((data) => {
             dispatch(setError(data.error));
             dispatch(push('/admin/login'));
           })
@@ -72,7 +72,7 @@ export const rehydrateSession = () => (
 );
 
 export const logout = () => (
-  dispatch => {
+  (dispatch) => {
     dispatch(deleteSession());
     Cookies.remove('RosaJWT');
     dispatch(push('/admin/login'));

@@ -6,7 +6,7 @@ import reducer from './reducers';
 export default function configureStore(browserHistory) {
   const createStoreWithMiddleware = applyMiddleware(
     routerMiddleware(browserHistory),
-    thunkMiddleware
+    thunkMiddleware,
     )(createStore);
 
   return createStoreWithMiddleware(reducer,

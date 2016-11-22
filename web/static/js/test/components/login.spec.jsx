@@ -64,7 +64,7 @@ describe('<Login />', () => {
     expect(props.submit).toHaveBeenCalledWith(
       'mail@example.com',
       '12345678',
-      false
+      false,
     );
   });
 });
