@@ -39,7 +39,7 @@ defmodule Rosa.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 2.5"},
-     {:guardian, "~> 0.12.0"},
+     {:guardian, "~> 0.13.0"},
      {:hound, "~> 1.0"}]
   end
 
