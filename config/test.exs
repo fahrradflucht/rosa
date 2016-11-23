@@ -16,7 +16,7 @@ config :comeonin, :bcrypt_log_rounds, 4
 config :rosa, Rosa.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
+  password: "",
   database: "rosa_test",
   hostname: "localhost",
   port: "5432",

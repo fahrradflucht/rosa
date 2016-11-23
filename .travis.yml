@@ -6,6 +6,8 @@ addons:
     apt:
         packages:
             - wget
+env:
+    - ROSA_TEST_DB_PW=""
 install:
     - export PATH=$PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64/bin:$PATH; if [ $(phantomjs --version) != '2.1.1' ]; then rm -rf $PWD/travis_phantomjs; mkdir -p $PWD/travis_phantomjs && wget https://fileserver.mathiswiehl.de/rosa/phantomjs-2.1.1-linux-x86_64.tar.bz2 -O $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 && tar -xvf $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C $PWD/travis_phantomjs; fi
     - mix local.rebar --force
@@ -23,7 +25,6 @@ cache:
 before_script:
     - phantomjs -w --webdriver-loglevel=ERROR &
     - psql -c 'create database rosa_test;' -U postgres
-    - cp config/travis.exs config/test.exs
 script:
     - yarn run build
     - yarn test
