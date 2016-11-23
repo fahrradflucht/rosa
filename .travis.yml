@@ -13,18 +13,19 @@ install:
     - mix deps.get
     - nvm install 7.0.0
     - npm install --global yarn
-    - yarn
+    - yarn install --force
 cache:
   directories:
     - deps
     - node_modules
+    - travis_phantomjs
     - $HOME/.npm
 before_script:
     - phantomjs -w --webdriver-loglevel=ERROR &
     - psql -c 'create database rosa_test;' -U postgres
     - cp config/travis.exs config/test.exs
 script:
-    - npm run build
-    - npm test
+    - yarn run build
+    - yarn test
     - mix test
-    - npm run lint
+    - yarn run lint
