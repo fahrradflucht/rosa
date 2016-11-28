@@ -9,3 +9,16 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Rosa.{Repo}
+
+initial_admin = %{
+    email: "admin@example.com",
+    password: "adminpassword",
+    first_name: "Admin",
+    last_name: "The Greatest"
+}
+
+%Rosa.User{}
+|> Rosa.User.changeset(initial_admin)
+|> Repo.insert!()

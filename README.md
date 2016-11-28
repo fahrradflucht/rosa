@@ -18,8 +18,12 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
 
+## Resources
+  * Planned editor: https://github.com/jpuri/react-draft-wysiwyg
+
 ## Doc Dump
 
   * Users need to set guardians `secret_key` in `prod.secret.exs`
   * Devs should consider running tests with `--exclude integration` 
+  * Run initial admin seed with `mix run priv/repo/seeds.exs`.
   
