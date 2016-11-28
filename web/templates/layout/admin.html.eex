@@ -11,7 +11,9 @@
 <body>
    <%= render @view_module, @view_template, assigns %> 
    <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
-   <script src="https://cdn.rawgit.com/chuckplantain/phantomjs-polyfill-object-assign/3afe0787d35060c0241d808af1ddae11741fc6e9/object-assign-polyfill.js"></script>
+   <%= if (Mix.env()== :test) do %>
+    <script src="<%= static_path(@conn, "/js/object-assign-polyfill.js") %>"></script>
+   <% end %>
    <script src="<%= static_path(@conn, "/js/application.js") %>"></script>
 </body>
 </html>
